@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — Embroidery Studio</title>
+    <link rel="icon" type="img/jpg" href="img/logo.jpg">
+    <meta name="description"
+        content="Transparent pricing for premium embroidery services. Starter to Enterprise plans for custom patches, digitizing, and bulk production.">
+    <script src="tailwind.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a84c'/><text x='50' y='68' text-anchor='middle' font-size='60' font-weight='bold' fill='%231a1a2e' font-family='serif'>E</text></svg>">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="relative min-h-screen pt-32 pb-20 overflow-hidden">
+            <div class="absolute inset-0"><img
+                    src="img/services1.png" alt="Pricing"
+                    class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/80 to-[#0a0a14]/40"></div>
+            </div>
+            <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center"> <span
+                    class="text-gold text-sm font-medium tracking-[3px] uppercase" data-anim="fade-up">Pricing</span>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white mt-4 mb-6"
+                    data-anim="fade-up" data-anim-delay="100">Simple,<br><span class="gradient-text">Transparent
+                        Pricing</span></h1>
+                <p class="text-white/70 text-lg max-w-xl mx-auto" data-anim="fade-up" data-anim-delay="200">Choose the plan that
+                    fits your project. All plans include professional digitizing, quality assurance, and dedicated
+                    support.</p>
+            </div>
+        </section> <!-- TOGGLE -->
+        <section class="py-12 overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-4" data-anim="fade-up"> <span
+                        class="text-sm font-medium" id="monthlyLabel">Monthly</span>
+                    <div class="toggle-switch" id="pricingToggle" onclick="togglePricing()">
+                        <div class="toggle-knob"></div>
+                    </div> <span class="text-sm font-medium" id="yearlyLabel">Yearly <span
+                            class="text-gold text-xs">Save 20%</span></span>
+                </div>
+            </div>
+        </section> <!-- PLANS -->
+        <section class="pb-24 overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <div class="glass-card rounded-2xl p-8 text-center group hover:shadow-xl transition-all duration-500"
+                        data-anim="fade-up">
+                        <div
+                            class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-seedling"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-2">Starter</h3>
+                        <p class="text-text-secondary text-xs mb-4">For small projects & individuals</p>
+                        <div class="mb-6">
+                            <div class="relative"> <span class="text-5xl font-bold font-serif price-amount">$49</span>
+                                <span class="text-text-secondary text-sm">/mo</span> </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-left mb-8">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>1 design digitizing</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Up to 5,000 stitches</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>2 free revisions</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Standard turnaround</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Email support</li>
+                        </ul> <a href="contact.html"
+                            class="w-full block text-center py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300 text-sm font-medium">Get
+                            Started</a>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 text-center group hover:shadow-xl transition-all duration-500"
+                        data-anim="fade-up" data-anim-delay="100">
+                        <div
+                            class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-rocket"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-2">Professional</h3>
+                        <p class="text-text-secondary text-xs mb-4">For growing brands & businesses</p>
+                        <div class="mb-6">
+                            <div class="relative"> <span class="text-5xl font-bold font-serif price-amount">$149</span>
+                                <span class="text-text-secondary text-sm">/mo</span> </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-left mb-8">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>5 design digitizing</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Up to 15,000 stitches</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>5 free revisions</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Express 48hr available</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Priority support</li>
+                        </ul> <a href="contact.html"
+                            class="w-full block text-center py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300 text-sm font-medium">Get
+                            Started</a>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 text-center group hover:shadow-xl transition-all duration-500 relative scale-105 border-2 border-gold"
+                        data-anim="fade-up" data-anim-delay="200">
+                        
+                        <div
+                            class="w-16 h-16 rounded-full gradient-gold flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-gem"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-2">Premium</h3>
+                        <p class="text-text-secondary text-xs mb-4">For serious fashion & streetwear brands</p>
+                        <div class="mb-6">
+                            <div class="relative"> <span class="text-5xl font-bold font-serif price-amount">$299</span>
+                                <span class="text-text-secondary text-sm">/mo</span> </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-left mb-8">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>15 design digitizing</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Up to 50,000 stitches</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Unlimited revisions</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>24hr rush available</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Dedicated project manager</li>
+                        </ul> <a href="contact.html"
+                            class="w-full block text-center py-3 rounded-xl gradient-gold text-charcoal font-semibold text-sm hover:shadow-lg hover:shadow-gold/30 transition-all duration-300">Get
+                            Started</a>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 text-center group hover:shadow-xl transition-all duration-500"
+                        data-anim="fade-up" data-anim-delay="300">
+                        <div
+                            class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-building"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-2">Business</h3>
+                        <p class="text-text-secondary text-xs mb-4">For corporate & enterprise teams</p>
+                        <div class="mb-6">
+                            <div class="relative"> <span class="text-5xl font-bold font-serif price-amount">$599</span>
+                                <span class="text-text-secondary text-sm">/mo</span> </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-left mb-8">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>40 design digitizing</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Unlimited stitches</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Unlimited revisions</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>API integration</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>24/7 priority support</li>
+                        </ul> <a href="contact.html"
+                            class="w-full block text-center py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300 text-sm font-medium">Get
+                            Started</a>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 text-center group hover:shadow-xl transition-all duration-500"
+                        data-anim="fade-up" data-anim-delay="400">
+                        <div
+                            class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-globe-americas"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-text-secondary text-xs mb-4">For large-scale manufacturing</p>
+                        <div class="mb-6">
+                            <div class="relative"> <span class="text-5xl font-bold font-serif price-amount">$999</span>
+                                <span class="text-text-secondary text-sm">/mo</span> </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-left mb-8">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Unlimited designs</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Unlimited stitches</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Dedicated production line</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Bulk discount pricing</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Dedicated account team</li>
+                        </ul> <a href="contact.html"
+                            class="w-full block text-center py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-300 text-sm font-medium">Contact
+                            Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- FEATURE COMPARISON -->
+        <section class="py-24 bg-gradient-to-b from-transparent via-gold/5 to-transparent overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16"> <span
+                        class="text-gold text-sm font-medium tracking-[3px] uppercase"
+                        data-anim="fade-up">Comparison</span>
+                    <h2 class="section-title mt-3" data-anim="fade-up" data-anim-delay="100">Plan Features at a Glance
+                    </h2>
+                </div>
+                <div class="overflow-x-auto" data-anim="fade-up">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-border-color">
+                                <th class="py-4 px-4 font-semibold">Feature</th>
+                                <th class="py-4 px-4 font-semibold text-center">Starter</th>
+                                <th class="py-4 px-4 font-semibold text-center">Professional</th>
+                                <th class="py-4 px-4 font-semibold text-center text-gold">Premium</th>
+                                <th class="py-4 px-4 font-semibold text-center">Business</th>
+                                <th class="py-4 px-4 font-semibold text-center">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">Monthly Designs</td>
+                                <td class="py-4 px-4 text-center text-sm">1</td>
+                                <td class="py-4 px-4 text-center text-sm">5</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">15</td>
+                                <td class="py-4 px-4 text-center text-sm">40</td>
+                                <td class="py-4 px-4 text-center text-sm">Unlimited</td>
+                            </tr>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">Max Stitches</td>
+                                <td class="py-4 px-4 text-center text-sm">5,000</td>
+                                <td class="py-4 px-4 text-center text-sm">15,000</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">50,000</td>
+                                <td class="py-4 px-4 text-center text-sm">Unlimited</td>
+                                <td class="py-4 px-4 text-center text-sm">Unlimited</td>
+                            </tr>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">Revisions</td>
+                                <td class="py-4 px-4 text-center text-sm">2</td>
+                                <td class="py-4 px-4 text-center text-sm">5</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">Unlimited</td>
+                                <td class="py-4 px-4 text-center text-sm">Unlimited</td>
+                                <td class="py-4 px-4 text-center text-sm">Unlimited</td>
+                            </tr>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">Turnaround</td>
+                                <td class="py-4 px-4 text-center text-sm">Standard</td>
+                                <td class="py-4 px-4 text-center text-sm">Express 48hr</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">24hr Rush</td>
+                                <td class="py-4 px-4 text-center text-sm">Priority</td>
+                                <td class="py-4 px-4 text-center text-sm">Dedicated Line</td>
+                            </tr>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">Support</td>
+                                <td class="py-4 px-4 text-center text-sm">Email</td>
+                                <td class="py-4 px-4 text-center text-sm">Priority</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">Dedicated PM</td>
+                                <td class="py-4 px-4 text-center text-sm">24/7 Priority</td>
+                                <td class="py-4 px-4 text-center text-sm">Account Team</td>
+                            </tr>
+                            <tr class="border-b border-border-color">
+                                <td class="py-4 px-4 text-sm">API Access</td>
+                                <td class="py-4 px-4 text-center text-sm">—</td>
+                                <td class="py-4 px-4 text-center text-sm">—</td>
+                                <td class="py-4 px-4 text-center text-sm text-gold font-semibold">—</td>
+                                <td class="py-4 px-4 text-center text-sm"><i class="fas fa-check text-green-500"></i>
+                                </td>
+                                <td class="py-4 px-4 text-center text-sm"><i class="fas fa-check text-green-500"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-gold overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div data-anim="scale-up">
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6">Need a Custom Solution?</h2>
+                    <p class="text-white/70 text-lg max-w-2xl mx-auto mb-10">Every brand is unique. Let's create a
+                        tailored embroidery package that fits your exact needs and budget.</p> <a href="contact.html"
+                        class="btn-primary text-lg">Request Custom Quote</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/animations.js"></script>
+    <script>    let isYearly = false; function togglePricing() { isYearly = !isYearly; document.getElementById('pricingToggle').classList.toggle('active'); const amounts = document.querySelectorAll('.price-amount'); const multipliers = { 0: 49, 1: 149, 2: 299, 3: 599, 4: 999 }; amounts.forEach((el, i) => { const base = multipliers[i]; el.textContent = isYearly ? '$' + Math.floor(base * 10 * 0.8) : '$' + base; }); }  </script>
+</body>
+
+</html>

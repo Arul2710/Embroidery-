@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Embroidery Studio | Custom Embroidery & Patch Design</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a84c'/><text x='50' y='68' font-family='serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'>E</text></svg>">
+    <script src="tailwind.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="img/jpg" href="img/logo.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+        * {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background: #fbf7f0;
+            overflow-x: hidden;
+        }
+        .dark body {
+            background: #0e0c12;
+        }
+        /* Studio theme colors */
+        :root {
+            --studio-primary: #b56357;   /* terracotta / thread */
+            --studio-deep: #8b3c2f;
+            --studio-accent: #d9a13b;    /* golden thread */
+            --studio-soft: #f2e8dc;
+            --gold: #c9a84c;
+            --gold-light: #e8d48b;
+            --gold-dark: #a8892e;
+        }
+        .studio-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(181, 99, 87, 0.2);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.05);
+        }
+        .dark .studio-card {
+            background: #17141f;
+            border-color: rgba(181, 99, 87, 0.3);
+        }
+        .sidebar-active {
+            background: rgba(201, 168, 76, 0.15);
+            border-left: 4px solid #c9a84c;
+            color: #c9a84c !important;
+            font-weight: 700;
+        }
+        [dir="rtl"] .sidebar-active {
+            border-left: 0;
+            border-right: 4px solid #c9a84c;
+        }
+        .page-node {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .page-node.active {
+            display: block;
+            animation: fadeInUp 0.4s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+        .logo-icon-studio {
+            background: linear-gradient(135deg, #b56357, #d9a13b);
+            box-shadow: 0 6px 14px rgba(181, 99, 87, 0.3);
+        }
+        .nb-logo-name {
+            background: linear-gradient(135deg, #b56357, #d9a13b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        @media (max-width: 1023px) {
+            #sidebar { width: 280px; box-shadow: 0 0 30px rgba(181, 99, 87, 0.15);}
+        }
+        button, a { min-height: 44px; min-width: 44px; cursor: pointer; }
+        .thread-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(217,161,59,0.08) 2%, transparent 2.5%);
+            background-size: 24px 24px;
+        }
+        /* Dark mode sidebar & nav gold theme */
+        .dark #sidebar {
+            background: #12121f !important;
+            border-color: rgba(201, 168, 76, 0.12);
+        }
+        .dark .nav-btn {
+            color: #c0b8b0;
+            transition: color 0.25s ease, background-color 0.25s ease;
+        }
+        .dark .nav-btn:hover {
+            color: #c9a84c !important;
+            background: rgba(201, 168, 76, 0.12);
+        }
+        .dark .nav-btn:hover i {
+            color: #c9a84c !important;
+        }
+        .dark .nav-btn i {
+            color: #8a7a70;
+        }
+        .dark .sidebar-active,
+        .dark .sidebar-active i {
+            color: #c9a84c !important;
+        }
+    </style>
+</head>
+<body class="bg-[#fbf7f0] dark:bg-[#0e0c12] text-gray-800 dark:text-gray-100 antialiased thread-pattern">
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden transition-opacity duration-300"></div>
+    <div class="flex min-h-screen relative w-full overflow-x-hidden">
+        <!-- SIDEBAR : Embroidery Studio Theme -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-[280px] bg-white dark:bg-[#13101a] text-gray-600 dark:text-gray-400 transition-all duration-300 ease-in-out lg:translate-x-0 -translate-x-full border-r border-amber-200/60 dark:border-amber-800/30 overflow-y-auto flex flex-col">
+            <div class="p-5 h-full flex flex-col">
+                <div class="flex items-center justify-between mb-8">
+                    <a href="index.html" class="flex items-center gap-3 group" onclick="showPage('dashboard')">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center shadow-md transition-all duration-500 group-hover:rotate-12 group-hover:scale-110" style="background: linear-gradient(135deg, #a8892e, #c9a84c, #e8d48b);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+                        </div>
+                        <div class="leading-tight">
+                            <span class="text-base font-bold tracking-wide" style="color: #c9a84c;">Embroidery</span>
+                            
+                        </div>
+                    </a>
+                    <button onclick="toggleSidebar()" class="lg:hidden p-2 hover:bg-studio-primary/10 rounded-lg">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div class="mb-5 p-2 bg-studio-primary/5 rounded-xl border border-studio-primary/20 text-center">
+                    <span class="text-[9px] font-black text-studio-primary uppercase tracking-widest">🧵 handcrafted digitizing · emblems · logos · 3D puff</span>
+                </div>
+                <nav class="flex-1 space-y-1.5 overflow-y-auto">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-studio-primary/70 mb-2 ml-2"><i class="fa-regular fa-compass mr-1"></i> STUDIO HUB</p>
+                    <a href="javascript:void(0)" onclick="showPage('dashboard')" id="btn-dashboard" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl sidebar-active transition-all hover:bg-amber-50 dark:hover:bg-white/5 group">
+                        <i data-lucide="gauge" class="w-5 h-5 group-hover:scale-110 text-studio-primary"></i>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="showPage('orders')" id="btn-orders" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                        <i data-lucide="package" class="w-5 h-5 group-hover:scale-110"></i>
+                        <span class="font-medium">Active Orders</span>
+                        <span class="ml-auto bg-studio-primary text-white text-[8px] font-black px-2 py-1 rounded-full">12</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="showPage('clients')" id="btn-clients" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        <span class="font-medium">Clients</span>
+                        <span class="ml-auto bg-studio-primary/20 text-studio-primary text-[8px] font-black px-2 py-1 rounded-full">48</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="showPage('quote')" id="btn-quote" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                        <i data-lucide="file-quote" class="w-5 h-5"></i>
+                        <span class="font-medium">Quotes / Estimates</span>
+                        <span class="ml-auto bg-studio-accent/30 text-studio-accent text-[8px] font-black px-2 py-1 rounded-full">7 new</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="showPage('portfolio')" id="btn-portfolio" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                        <i data-lucide="image" class="w-5 h-5"></i>
+                        <span class="font-medium">Patch Gallery</span>
+                    </a>
+                    <div class="mt-6 pt-6 border-t border-studio-primary/20 dark:border-gray-700">
+                        <p class="text-[10px] font-black uppercase tracking-widest text-studio-primary/70 mb-3 ml-2"><i class="fa-solid fa-scissors"></i> MATERIALS & TEAM</p>
+                        <a href="javascript:void(0)" onclick="showPage('inventory')" id="btn-inventory" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                            <span class="font-medium">Thread & Backing</span>
+                            <span class="ml-auto bg-studio-accent text-white text-[8px] font-black px-2 py-1 rounded-full">Reorder</span>
+                        </a>
+                        <a href="javascript:void(0)" onclick="showPage('crew')" id="btn-crew" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                            <i data-lucide="badge-check" class="w-5 h-5"></i>
+                            <span class="font-medium">Digitizers</span>
+                        </a>
+                        <a href="javascript:void(0)" onclick="showPage('calendar')" id="btn-calendar" class="nav-btn flex items-center gap-3 p-3.5 rounded-xl hover:bg-amber-50 dark:hover:bg-white/5 group">
+                            <i data-lucide="calendar-clock" class="w-5 h-5"></i>
+                            <span class="font-medium">Prod. Schedule</span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="sidebar-logout pt-6 mt-6 border-t border-studio-primary/20">
+                    <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-3 p-3.5 rounded-xl bg-studio-primary/10 text-studio-primary hover:bg-studio-primary/20 transition-all group">
+                        <i data-lucide="log-out" class="w-5 h-5 group-hover:scale-110"></i>
+                        <span class="font-medium text-sm">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT : Custom Embroidery Studio -->
+        <main class="flex-1 lg:ml-[280px] p-4 sm:p-6 md:p-8 transition-all duration-300 w-full max-w-full overflow-x-hidden">
+            <header class="flex items-center justify-between mb-6 sm:mb-8 flex-wrap gap-3">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3">
+                        <button onclick="toggleSidebar()" class="lg:hidden p-2.5 bg-white dark:bg-[#13101a] rounded-xl shadow-md border border-amber-200 dark:border-gray-700">
+                            <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                        </button>
+                        <div>
+                            <h1 id="pageTitle" class="text-xl sm:text-2xl font-black tracking-tight uppercase text-studio-primary">EMBROIDERY DASH</h1>
+                            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium mt-0.5">
+                                <span class="text-studio-accent font-black">🧵 Custom Digitizing · Embroidered Patches · 3D Puff · Vector Art</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-actions flex items-center gap-3">
+                    <div class="hidden sm:flex items-center gap-2 bg-white dark:bg-[#13101a] px-3 py-2 rounded-xl shadow-md">
+                        <i data-lucide="clock" class="w-4 h-4 text-studio-accent"></i>
+                        <span class="text-xs font-medium" id="liveTime">10:30 AM</span>
+                    </div>
+                    <button onclick="showPage('quote')" class="relative w-10 h-10 rounded-full bg-studio-accent/10 flex items-center justify-center hover:scale-105 transition">
+                        <i data-lucide="message-square" class="w-5 h-5 text-studio-accent"></i>
+                        <span class="absolute -top-1 -right-1 bg-studio-accent text-white text-[8px] font-black px-1.5 py-0.5 rounded-full">7</span>
+                    </button>
+                    <button onclick="toggleDirection()" class="p-2.5 bg-white dark:bg-[#13101a] rounded-xl shadow-md border border-amber-300 hover:bg-amber-50 transition-all">
+                        <i class="fa-solid fa-arrow-right-arrow-left text-studio-primary"></i>
+                    </button>
+                    <button onclick="toggleDarkMode()" class="p-2.5 bg-white dark:bg-[#13101a] rounded-xl shadow-md hover:scale-110 transition-all">
+                        <i id="themeIcon" data-lucide="moon" class="w-5 h-5 text-studio-primary"></i>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-2 bg-white dark:bg-[#13101a] pl-2 pr-3 py-1.5 rounded-xl shadow-md border border-amber-200">
+                        <div class="w-8 h-8 rounded-full bg-studio-primary/20 flex items-center justify-center text-studio-primary">
+                            <i class="fa-solid fa-palette text-sm"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <p class="font-bold text-xs">Elena V.</p>
+                            <p class="text-[8px] text-studio-primary font-black">Senior Digitizer</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mb-8 rounded-2xl overflow-hidden shadow-xl border border-studio-primary/20">
+                <img src="img/home1.webp" alt="Embroidery studio workspace" class="w-full h-48 lg:h-60 object-cover">
+            </div>
+            <div id="mainDisplay" class="space-y-6">
+                <!-- DASHBOARD PAGE -->
+                <div id="page-dashboard" class="page-node active">
+                    <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+                        <div class="studio-card bg-white dark:bg-[#17141f] p-5 rounded-2xl shadow-sm"><div class="flex justify-between"><p class="text-[9px] font-black text-studio-primary uppercase">ACTIVE PATCH ORDERS</p><i class="fa-regular fa-circle-dot text-studio-primary text-xl"></i></div><h3 class="text-3xl font-black mt-1">12</h3><div class="flex items-center gap-2 mt-2"><i data-lucide="trending-up" class="w-3 h-3 text-green-600"></i><span class="text-[10px]">+5 new this week</span></div></div>
+                        <div class="studio-card bg-white dark:bg-[#17141f] p-5 rounded-2xl"><p class="text-[9px] font-black text-studio-accent uppercase">QUOTES PENDING</p><h3 class="text-3xl font-black">9</h3><div class="mt-2"><span class="text-[10px]">🎨 4 custom logo patches</span></div></div>
+                        <div class="studio-card bg-white dark:bg-[#17141f] p-5 rounded-2xl"><p class="text-[9px] font-black text-studio-primary uppercase">MONTHLY REVENUE</p><h3 class="text-3xl font-black">$14.2k</h3><div class="text-[10px] text-green-600">↑ +31% vs last month</div></div>
+                        <div class="studio-card bg-white dark:bg-[#17141f] p-5 rounded-2xl"><p class="text-[9px] font-black text-studio-primary uppercase">CLIENT SAT.</p><h3 class="text-3xl font-black">4.96 ★</h3><div class="text-[10px]">from 112 reviews</div></div>
+                    </div>
+                    <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                        <div class="lg:col-span-2 studio-card p-5 rounded-2xl"><h4 class="font-black text-sm uppercase flex gap-2 items-center"><i class="fa-solid fa-chart-line"></i>ORDER TRENDS (Patches vs Apparel)</h4><canvas id="trendChart" height="180" class="mt-2"></canvas></div>
+                        <div class="studio-card p-5 rounded-2xl"><h4 class="font-black text-sm uppercase">PATCH TYPE %</h4><canvas id="patchTypeChart" height="160"></canvas><div class="grid grid-cols-2 gap-1 text-[9px] mt-2 text-center"><span>🧵 Woven 48%</span><span>⚡ PVC 28%</span><span>✨ Chenille 24%</span></div></div>
+                    </div>
+                    <div class="studio-card p-5 rounded-2xl"><div class="flex justify-between"><h4 class="font-black uppercase text-sm">📌 RECENT QUOTE REQUESTS</h4><button onclick="showPage('quote')" class="text-studio-primary text-[9px] font-black">View all →</button></div><div class="space-y-3 mt-3"><div class="flex items-center justify-between p-3 bg-amber-50/60 dark:bg-studio-primary/5 rounded-xl"><div class="flex gap-3"><i class="fa-solid fa-shirt text-studio-primary"></i><div><p class="text-xs font-bold">Bold & Threads Co.</p><p class="text-[9px]">100x woven patches, merrowed border</p></div></div><span class="text-[9px] font-black text-studio-accent">Estimate sent</span></div><div class="flex items-center justify-between p-3 bg-amber-50/60 rounded-xl"><div class="flex gap-3"><i class="fa-regular fa-building"></i><div><p class="text-xs font-bold">Summit Fire Dept</p><p class="text-[9px]">3D puff + velcro backing (50pcs)</p></div></div><span class="text-[9px] font-black text-green-600">Deposit paid</span></div></div></div>
+                </div>
+
+                <!-- ACTIVE ORDERS -->
+                <div id="page-orders" class="page-node"><div class="studio-card p-5 rounded-2xl"><div class="flex flex-wrap justify-between items-center"><h3 class="font-black text-lg uppercase">🪡 Active Orders</h3><button class="bg-studio-primary text-white text-[9px] px-5 py-2 rounded-full shadow">+ New Order</button></div><div class="overflow-x-auto mt-4"><table class="w-full text-left"><thead class="border-b text-[9px] font-black text-studio-primary"><tr><th>CLIENT</th><th>PATCH TYPE</th><th>QTY</th><th>STATUS</th><th>DUE</th></tr></thead><tbody class="text-xs"><tr class="border-b"><td class="py-3">Iron & Oak Motorcycle</td><td>Chenille / Rocker</td><td>35</td><td><span class="status-badge bg-studio-primary/20">Digitizing</span></td><td>May 28</td></tr><tr><td class="py-3">Luna Coffee Roasters</td><td>Woven logo</td><td>200</td><td><span class="status-badge bg-studio-accent/30">Production</span></td><td>Jun 02</td></tr></tbody></table></div></div></div>
+
+                <!-- CLIENTS -->
+                <div id="page-clients" class="page-node"><div class="studio-card p-5"><h3 class="font-black mb-4">👥 Brand & Private Clients</h3><div class="grid sm:grid-cols-2 gap-3"><div class="p-3 bg-studio-primary/5 rounded-xl flex justify-between"><span class="font-bold">Rebel Flag Co.</span><span class="text-studio-primary">1200 patches</span></div><div class="p-3 bg-studio-primary/5 rounded-xl flex justify-between"><span class="font-bold">Heritage Golf Club</span><span class="text-studio-accent">Annual embroidery</span></div><div class="p-3 bg-studio-primary/5 rounded-xl flex justify-between"><span class="font-bold">Electric Soul Apparel</span><span class="text-studio-primary">Rush order</span></div></div></div></div>
+
+                <!-- ESTIMATES / QUOTE -->
+                <div id="page-quote" class="page-node"><div class="studio-card p-5"><h3 class="font-black mb-3">📋 Custom Quote Requests</h3><div class="space-y-3"><div class="p-4 border-l-4 border-studio-accent bg-studio-primary/5 rounded-xl"><p class="font-bold">Freemont Scouts — 3D puff morale patches</p><p class="text-xs">80pcs, backing: plastic, sew-on. Est. $680</p><button class="mt-2 text-studio-accent text-[9px] font-black">Convert to order →</button></div><div class="p-4 border-l-4 border-studio-primary bg-amber-50/40 rounded-xl"><p class="font-bold">Retro Diner "Route 66"</p><p class="text-xs">Woven patch + vintage look, 150 units</p><button class="mt-2 text-studio-accent text-[9px]">Create estimate</button></div></div></div></div>
+
+                <!-- PORTFOLIO GALLERY -->
+                <div id="page-portfolio" class="page-node"><div class="studio-card p-5"><h3 class="font-black uppercase mb-3">✨ Embroidery & Patch Portfolio</h3><div class="grid grid-cols-2 sm:grid-cols-3 gap-4"><div class="rounded-xl overflow-hidden shadow-md border">                <img src="img/portfoilo2.jpg" class="w-full h-28 object-cover"><p class="text-[9px] p-2 font-bold">Woven scout patch</p></div><div class="rounded-xl overflow-hidden shadow-md"><img src="img/portfoilo3.jpg" class="w-full h-28 object-cover"><p class="text-[9px] p-2">3D puff + merrowed</p></div><div class="rounded-xl overflow-hidden shadow-md"><img src="img/portfoilo4.jpg" class="w-full h-28 object-cover"><p class="text-[9px] p-2">Custom chenille letterman</p></div></div></div></div>
+
+                <!-- INVENTORY (threads, backing) -->
+                <div id="page-inventory" class="page-node"><div class="studio-card p-5"><h3 class="font-black mb-4">🧵 Thread & Backing Inventory</h3><div class="space-y-3"><div><div class="flex justify-between text-xs font-bold"><span>Polyester Thread (40 wt)</span><span class="text-studio-accent">Low: 28%</span></div><div class="w-full bg-gray-200 h-2 rounded-full mt-1"><div class="bg-studio-primary w-[28%] h-2 rounded-full"></div></div></div><div><div class="flex justify-between text-xs"><span>Iron-On Adhesive sheets</span><span class="text-green-700">72%</span></div><div class="w-full bg-gray-200 h-2 rounded-full"><div class="bg-studio-accent w-[72%] h-2 rounded-full"></div></div></div><p class="text-[9px] mt-2 italic">⚠️ White & black thread reorder recommended</p></div></div></div>
+
+                <!-- CREW (Digitizers) -->
+                <div id="page-crew" class="page-node"><div class="studio-card p-5"><h3 class="font-black">🖌️ Master Digitizers & Production</h3><div class="grid sm:grid-cols-2 gap-3 mt-3"><div class="flex gap-3 p-3 bg-studio-primary/5 rounded-xl"><div class="w-9 h-9 rounded-full bg-studio-accent flex items-center justify-center text-white font-black">JD</div><div><p class="font-bold">Jasmine Duarte</p><p class="text-[9px]">Lead Digitizer · 8yrs exp</p></div></div><div class="flex gap-3 p-3 bg-studio-primary/5 rounded-xl"><div class="w-9 h-9 rounded-full bg-studio-primary flex items-center justify-center text-white">MC</div><div><p class="font-bold">Marcus Chen</p><p class="text-[9px]">3D Puff specialist</p></div></div></div></div></div>
+
+                <!-- CALENDAR / SCHEDULE -->
+                <div id="page-calendar" class="page-node"><div class="studio-card p-5"><h3 class="font-black">📅 Production Schedule</h3><div class="mt-3 space-y-2"><div class="flex justify-between border-b pb-2"><span class="text-xs font-bold">Thu 22 May</span><span class="text-xs">🧶 "Sunset Diner" woven patch - cut & sew</span><span class="text-studio-accent text-[9px]">In queue</span></div><div class="flex justify-between border-b pb-2"><span class="text-xs font-bold">Fri 23 May</span><span class="text-xs">⚡ PVC patches for Marathon club</span><span class="text-green-600 text-[9px]">Digitizing approved</span></div><div class="flex justify-between"><span class="text-xs font-bold">Mon 26 May</span><span class="text-xs">✨ 500x custom emblem, bulk order</span><span class="text-studio-primary text-[9px]">Material ready</span></div></div></div></div>
+            </div>
+        </main>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        function toggleSidebar() { 
+            const s = document.getElementById('sidebar');
+            const o = document.getElementById('sidebarOverlay');
+            s.classList.toggle('-translate-x-full');
+            if(window.innerWidth < 1024 && o) o.classList.toggle('hidden');
+            setTimeout(() => lucide.createIcons(), 120);
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const icon = document.getElementById('themeIcon');
+            if(icon) {
+                const isDark = document.documentElement.classList.contains('dark');
+                icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                lucide.createIcons();
+            }
+        }
+        if(localStorage.getItem('darkMode') === 'dark') document.documentElement.classList.add('dark');
+        updateThemeIcon();
+
+        function toggleDirection() {
+            const html = document.getElementById('htmlTag');
+            html.dir = html.dir === 'rtl' ? 'ltr' : 'rtl';
+            lucide.createIcons();
+        }
+        function handleLogout() { alert("Logged out successfully. See you soon!"); }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-node').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + pageId);
+            if(target) target.classList.add('active');
+            const titles = { dashboard:'EMBROIDERY DASH', orders:'ACTIVE ORDERS', clients:'CLIENTS', quote:'QUOTES / ESTIMATES', portfolio:'PATCH GALLERY', inventory:'THREAD & BACKING', crew:'DIGITIZERS', calendar:'PROD SCHEDULE' };
+            document.getElementById('pageTitle').innerText = titles[pageId] || pageId.toUpperCase();
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('sidebar-active'));
+            const activeBtn = document.getElementById('btn-' + pageId);
+            if(activeBtn) activeBtn.classList.add('sidebar-active');
+            if(window.innerWidth < 1024) toggleSidebar();
+            lucide.createIcons();
+        }
+
+        function updateLiveTime() {
+            let d = new Date();
+            if(document.getElementById('liveTime')) document.getElementById('liveTime').innerText = d.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' }) + ' EST';
+        }
+        setInterval(updateLiveTime, 1000); updateLiveTime();
+
+        // Charts
+        const trend = document.getElementById('trendChart')?.getContext('2d');
+        if(trend) new Chart(trend, { type: 'line', data: { labels: ['Jan','Feb','Mar','Apr','May'], datasets: [{ label: 'Embroidered Patches', data: [42,48,55,71,84], borderColor: '#b56357', tension: 0.3, fill: false }, { label: 'Apparel Embroidery', data: [28,32,39,47,59], borderColor: '#d9a13b', tension: 0.3 }] }, options: { responsive: true, maintainAspectRatio: true } });
+        const patchType = document.getElementById('patchTypeChart')?.getContext('2d');
+        if(patchType) new Chart(patchType, { type: 'doughnut', data: { labels: ['Woven','PVC','Chenille'], datasets: [{ data: [48,28,24], backgroundColor: ['#b56357','#d9a13b','#8b3c2f'], borderWidth: 0 }] }, options: { cutout: '60%', plugins: { legend: { position: 'bottom', labels: { font: { size: 8 } } } } } });
+
+        document.addEventListener('DOMContentLoaded', () => { showPage('dashboard'); lucide.createIcons(); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Embroidery Studio</title>
+    <link rel="icon" type="img/jpg" href="img/logo.jpg">
+    <meta name="description"
+        content="Explore our premium embroidery portfolio: fashion projects, patch collections, streetwear branding, and custom apparel designs.">
+    <script src="tailwind.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a84c'/><text x='50' y='68' text-anchor='middle' font-size='60' font-weight='bold' fill='%231a1a2e' font-family='serif'>E</text></svg>">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="relative min-h-screen pt-32 pb-20 overflow-hidden">
+            <div class="absolute inset-0"><img
+                    src="img/portfoilo1.jpg" alt="Portfolio"
+                    class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/80 to-[#0a0a14]/40"></div>
+            </div>
+            <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center"> <span
+                    class="text-gold text-sm font-medium tracking-[3px] uppercase" data-anim="fade-up">Our
+                    Portfolio</span>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white mt-4 mb-6"
+                    data-anim="fade-up" data-anim-delay="100">Showcase of<br><span
+                        class="gradient-text">Excellence</span></h1>
+                <p class="text-white/70 text-lg max-w-xl mx-auto" data-anim="fade-up" data-anim-delay="200">Every project tells
+                    a story. Browse our collection of premium embroidery work across fashion, streetwear, corporate, and
+                    custom categories.</p>
+            </div>
+        </section> <!-- FILTERS -->
+        <section class="py-12 overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap gap-3 justify-center" data-anim="fade-up"> <button class="filter-btn active"
+                        data-filter="all">All Projects</button> <button class="filter-btn"
+                        data-filter="fashion">Fashion</button> <button class="filter-btn"
+                        data-filter="streetwear">Streetwear</button> <button class="filter-btn"
+                        data-filter="patches">Patches</button> <button class="filter-btn"
+                        data-filter="uniform">Uniforms</button> <button class="filter-btn" data-filter="caps">Caps &
+                        Hats</button> </div>
+            </div>
+        </section> <!-- GALLERY -->
+        <section class="pb-24 overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="fashion"
+                        data-anim="scale-up"> <img
+                            src="img/portfoilo2.jpg"
+                            alt="Fashion embroidery"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Fashion Collection</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Avant-Garde Embroidery</h3>
+                            <p class="text-white/60 text-sm">Luxury fashion label collaboration</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="streetwear"
+                        data-anim="scale-up" data-anim-delay="100"> <img
+                            src="img/portfoilo3.jpg"
+                            alt="Streetwear hoodie"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Streetwear</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Hoodie Collection</h3>
+                            <p class="text-white/60 text-sm">Chest & sleeve branding package</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="patches"
+                        data-anim="scale-up" data-anim-delay="200"> <img
+                            src="img/portfoilo4.jpg"
+                            alt="Varsity patch"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Patches</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Chenille Varsity Patches</h3>
+                            <p class="text-white/60 text-sm">Letterman jacket collection</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="uniform"
+                        data-anim="scale-up"> <img
+                            src="img/portfoilo5.jpg"
+                            alt="Corporate uniform"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Corporate</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Executive Uniform Program</h3>
+                            <p class="text-white/60 text-sm">500+ employee branding rollout</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="caps"
+                        data-anim="scale-up" data-anim-delay="100"> <img
+                            src="img/portfoilo6.jpg"
+                            alt="Cap embroidery"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Caps</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Flat Brim Cap Series</h3>
+                            <p class="text-white/60 text-sm">3D puff & flat embroidery</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="patches"
+                        data-anim="scale-up" data-anim-delay="200"> <img
+                            src="img/portfoilo7.jpg"
+                            alt="Biker patches"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Patches</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Custom Biker Patches</h3>
+                            <p class="text-white/60 text-sm">Club insignia & back patches</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="fashion"
+                        data-anim="scale-up"> <img
+                            src="img/portfoilo8.jpg"
+                            alt="Designer patches"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Fashion</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Designer Label Patches</h3>
+                            <p class="text-white/60 text-sm">Woven & embroidered brand tags</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="streetwear"
+                        data-anim="scale-up" data-anim-delay="100"> <img
+                            src="img/portfoilo9.jpg"
+                            alt="Streetwear branding"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Streetwear</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Full Collection Branding</h3>
+                            <p class="text-white/60 text-sm">Seasonal capsule collection</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item group relative overflow-hidden rounded-2xl" data-category="caps"
+                        data-anim="scale-up" data-anim-delay="200"> <img
+                            src="img/portfoilo10.jpg"
+                            alt="Hat embroidery"
+                            class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-[#0a0a14]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-gold text-xs tracking-[3px] uppercase mb-2">Caps</span>
+                            <h3 class="text-white font-bold text-xl mb-2">Dad Hat Collection</h3>
+                            <p class="text-white/60 text-sm">Curved brim front embroidery</p> <span
+                                class="mt-4 px-4 py-2 rounded-full bg-gold text-charcoal text-xs font-semibold">View
+                                Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- BEFORE/AFTER -->
+        <section class="py-24 bg-gradient-to-b from-transparent via-gold/5 to-transparent overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16"> <span
+                        class="text-gold text-sm font-medium tracking-[3px] uppercase"
+                        data-anim="fade-up">Transformation</span>
+                    <h2 class="section-title mt-3" data-anim="fade-up" data-anim-delay="100">Before & After</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="group relative overflow-hidden rounded-2xl" data-anim="fade-up">
+                        <div class="relative"><img
+                                src="img/portfoilo11.jpg" alt="Before"
+                                class="w-full h-72 object-cover">
+                            <div
+                                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur text-white text-xs font-semibold">
+                                Original Design</div>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl" data-anim="fade-up" data-anim-delay="100">
+                        <div class="relative"><img
+                                src="img/portfoilo1.jpg"
+                                alt="After" class="w-full h-72 object-cover">
+                            <div
+                                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold text-charcoal text-xs font-semibold">
+                                Embroidered Result</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-gold overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div data-anim="scale-up">
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6">Ready to Create Your
+                        Masterpiece?</h2>
+                    <p class="text-white/70 text-lg max-w-2xl mx-auto mb-10">Let's collaborate on your next embroidery
+                        project. From concept to creation, we're here to help.</p> <a href="contact.html"
+                        class="btn-primary text-lg">Start Your Project</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/animations.js"></script>
+    <script>    document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', function () { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); this.classList.add('active'); const filter = this.getAttribute('data-filter'); document.querySelectorAll('.gallery-item').forEach(item => { if (filter === 'all' || item.getAttribute('data-category') === filter) { item.style.display = 'block'; } else { item.style.display = 'none'; } }); }); });  </script>
+</body>
+
+</html>

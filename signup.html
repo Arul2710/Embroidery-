@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Embroidery Studio • Sign Up — Create Account</title>
+    <link rel="icon" type="img/jpg" href="img/logo.jpg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a84c'/><text x='50' y='68' font-family='serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'>E</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="tailwind.js"></script>
+    
+    <!-- custom styling / gold theme -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        /* gold pulse for buttons */
+        @keyframes goldPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4), 0 0 0 0 rgba(168, 137, 46, 0.3);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(201, 168, 76, 0), 0 0 0 6px rgba(168, 137, 46, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0), 0 0 0 0 rgba(168, 137, 46, 0);
+            }
+        }
+
+        .gold-glow-btn {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .gold-glow-btn:hover {
+            transform: translateY(-2px);
+            animation: goldPulse 1.2s infinite;
+        }
+        
+        /* custom focus rings */
+        input:focus {
+            outline: none;
+        }
+        .focus-ring-gold:focus {
+            border-color: #d4b85c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.3);
+        }
+        
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf6f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c9a84c;
+            border-radius: 12px;
+        }
+        
+        /* RTL safe */
+        [dir="rtl"] .rtl-flip-icon {
+            display: inline-block;
+            transform: rotate(180deg);
+        }
+        [dir="rtl"] .pl-4 {
+            padding-left: 0;
+            padding-right: 1rem;
+        }
+        [dir="rtl"] .left-0 {
+            left: auto;
+            right: 0;
+        }
+        [dir="rtl"] .right-0 {
+            right: auto;
+            left: 0;
+        }
+        [dir="rtl"] .text-left {
+            text-align: right;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased bg-gradient-to-br from-[#FFF8F0] via-[#F5E6CC] to-[#EDD9A8] min-h-screen relative overflow-x-hidden">
+
+    <!-- Dynamic gold background overlays -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1440 320\'%3E%3Cpath fill=\'%23c9a84c\' fill-opacity=\'0.08\' d=\'M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,208C672,213,768,203,864,186.7C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\'%3E%3C/path%3E%3C/svg%3E')] bg-no-repeat bg-bottom bg-contain opacity-40"></div>
+        <div class="absolute top-0 -left-20 w-[600px] h-[600px] bg-[#c9a84c] rounded-full blur-[130px] opacity-20"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#a8892e] rounded-full blur-[120px] opacity-15"></div>
+        <div class="absolute top-1/3 left-1/2 w-[400px] h-[400px] bg-[#e8d48b] rounded-full blur-[100px] opacity-10"></div>
+    </div>
+
+    <!-- Header / Logo -->
+    <div class="fixed top-6 left-6 z-50">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center text-gray-900 font-bold text-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110" style="background: linear-gradient(135deg, #a8892e, #c9a84c, #e8d48b);">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+          </div>
+          <span class="text-base font-bold tracking-wide" style="color: #c9a84c;">Embroidery</span>
+        </a>
+    </div>
+
+    <!-- top-right tools: RTL + Theme toggle -->
+    <div class="fixed top-6 right-6 z-50 flex items-center gap-3">
+        <button id="rtlToggle" class="w-10 h-10 rounded-full bg-white/70 backdrop-blur-sm border border-[#c9a84c]/40 flex items-center justify-center text-[#a8892e] hover:bg-[#a8892e] hover:text-white transition-all shadow-md" title="Toggle RTL">
+            <span class="text-[11px] font-bold tracking-wide">RTL</span>
+        </button>
+        <button id="themeToggle" class="w-10 h-10 rounded-full bg-white/70 backdrop-blur-sm border border-[#c9a84c]/40 flex items-center justify-center text-[#a8892e] hover:bg-[#a8892e] hover:text-white transition-all shadow-md" title="Theme">
+            <i id="themeIcon" class="fas fa-sun text-sm"></i>
+        </button>
+    </div>
+
+    <!-- MAIN SIGNUP CARD -->
+    <div class="relative z-10 min-h-screen w-full flex items-center justify-center px-4 py-24 md:py-12">
+        <div class="w-full max-w-md transform transition-all duration-500">
+            <div class="backdrop-blur-xl bg-white/85 dark:bg-slate-900/80 rounded-3xl shadow-2xl border border-white/40 dark:border-slate-700/50 overflow-hidden p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_20px_40px_-12px_rgba(201,168,76,0.25)]">
+                
+                <!-- Header with crown icon -->
+                <div class="text-center mb-5 border-b border-[#c9a84c]/20 pb-5">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#c9a84c] to-[#a8892e] text-white shadow-md mb-3">
+                        <i class="fas fa-crown fa-lg drop-shadow-sm"></i>
+                    </div>
+                    <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-[#a8892e] to-[#c9a84c] bg-clip-text text-transparent">Create Account</h1>
+                    <p class="text-[0.75rem] font-medium text-slate-600 dark:text-slate-400 mt-1 flex items-center justify-center gap-1">
+                        <i class="fas fa-star text-[#c9a84c] text-[9px]"></i> join embroidery studio
+                    </p>
+                </div>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="space-y-4">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullname" class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                            <i class="fas fa-user text-[#c9a84c] text-[12px]"></i> Full Name
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-signature text-[#a8892e]/60 text-sm"></i>
+                            </div>
+                            <input type="text" id="fullname" required placeholder="Alex Rivera" 
+                                class="w-full pl-11 pr-4 py-3.5 bg-white/90 dark:bg-slate-800/80 border border-[#d4b85c]/60 rounded-xl focus:border-[#a8892e] focus:ring-2 focus:ring-[#a8892e]/30 outline-none transition-all text-slate-800 dark:text-white text-[15px] shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div>
+                        <label for="email" class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                            <i class="fas fa-envelope text-[#c9a84c] text-[12px]"></i> Email Address
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-at text-[#a8892e]/60 text-sm"></i>
+                            </div>
+                            <input type="email" id="email" required placeholder="hello@example.com" 
+                                class="w-full pl-11 pr-4 py-3.5 bg-white/90 dark:bg-slate-800/80 border border-[#d4b85c]/60 rounded-xl focus:border-[#a8892e] focus:ring-2 focus:ring-[#a8892e]/30 outline-none transition-all text-slate-800 dark:text-white text-[15px] shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                            <i class="fas fa-key text-[#c9a84c] text-[12px]"></i> Password
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-[#a8892e]/60 text-sm"></i>
+                            </div>
+                            <input type="password" id="password" required placeholder="••••••••" 
+                                class="w-full pl-11 pr-12 py-3.5 bg-white/90 dark:bg-slate-800/80 border border-[#d4b85c]/60 rounded-xl focus:border-[#a8892e] focus:ring-2 focus:ring-[#a8892e]/30 outline-none transition-all text-slate-800 dark:text-white text-[15px] shadow-sm">
+                            <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-[#a8892e] transition-colors">
+                                <i id="eyeIcon" class="fas fa-eye text-sm"></i>
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1.5 flex items-center gap-1"><i class="fas fa-shield-alt text-[#c9a84c]"></i> min. 6 characters</p>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirmPassword" class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                            <i class="fas fa-check-circle text-[#c9a84c] text-[12px]"></i> Confirm Password
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-repeat text-[#a8892e]/60 text-sm"></i>
+                            </div>
+                            <input type="password" id="confirmPassword" required placeholder="••••••••" 
+                                class="w-full pl-11 pr-4 py-3.5 bg-white/90 dark:bg-slate-800/80 border border-[#d4b85c]/60 rounded-xl focus:border-[#a8892e] focus:ring-2 focus:ring-[#a8892e]/30 outline-none transition-all text-slate-800 dark:text-white text-[15px] shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="flex items-start gap-2 pt-1">
+                        <input type="checkbox" id="termsCheck" class="mt-0.5 w-4 h-4 rounded border-[#c9a84c] text-[#a8892e] focus:ring-[#a8892e] accent-[#a8892e]">
+                        <label for="termsCheck" class="text-xs text-slate-600 dark:text-slate-400 leading-tight">
+                            I agree to the <a href="#" id="termsLink" class="text-[#a8892e] font-semibold hover:underline">Terms of Service</a> and <a href="#" class="text-[#a8892e] font-semibold hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="signupBtn" class="gold-glow-btn w-full mt-3 py-3.5 bg-gradient-to-r from-[#a8892e] to-[#c9a84c] text-white rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#a8892e]/40 transition-all flex items-center justify-center gap-2 group">
+                        <span>Create Account</span>
+                        <i class="fas fa-arrow-right text-xs rtl-flip-icon group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+
+                <!-- Divider -->
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-[#c9a84c]/20"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs">
+                        <span class="px-3 bg-white/90 dark:bg-slate-900/80 text-[#a8892e] font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
+                            <i class="fas fa-star"></i> or sign up with
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Social signup options -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button id="googleSignupBtn" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-white/90 dark:bg-slate-800/70 border border-[#c9a84c]/30 rounded-xl hover:border-[#a8892e] hover:bg-white/100 transition-all text-xs font-semibold text-slate-700 dark:text-white">
+                        <i class="fab fa-google text-[#ea4335] text-sm"></i> Google
+                    </button>
+                    <button id="appleSignupBtn" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-white/90 dark:bg-slate-800/70 border border-[#c9a84c]/30 rounded-xl hover:border-[#a8892e] hover:bg-white/100 transition-all text-xs font-semibold text-slate-700 dark:text-white">
+                        <i class="fab fa-apple text-slate-800 dark:text-white text-sm"></i> Apple
+                    </button>
+                </div>
+
+                <!-- Login link -->
+                <p class="mt-6 text-center text-[12px] text-slate-600 dark:text-slate-400">
+                    Already have an account? 
+                    <a href="#" id="loginRedirect" class="font-extrabold text-[#a8892e] hover:text-[#c9a84c] border-b border-[#a8892e]/40 hover:border-[#c9a84c] transition-all pb-0.5">Sign in</a>
+                </p>
+                
+                <!-- micro secure -->
+                <div class="mt-5 text-center text-[9px] text-slate-400 flex items-center justify-center gap-2">
+                    <i class="fas fa-shield-alt text-[#c9a84c]"></i> encrypted signup
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastMessage" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-lg text-white px-5 py-2.5 rounded-full shadow-xl flex items-center gap-2 text-sm font-medium z-50 transition-all duration-300 opacity-0 pointer-events-none">
+        <i class="fas fa-circle-check text-[#c9a84c]"></i>
+        <span id="toastText">Action completed</span>
+    </div>
+
+    <script>
+        // -------------------------------
+        // PASSWORD TOGGLE
+        // -------------------------------
+        function togglePassword() {
+            const passInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        // -------------------------------
+        // DARK MODE
+        // -------------------------------
+        const htmlEl = document.documentElement;
+        const themeBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        function applyThemePreference() {
+            const storedTheme = localStorage.getItem('gold-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = storedTheme === 'dark' || (storedTheme === null && prefersDark);
+            if (isDark) {
+                htmlEl.classList.add('dark');
+                if(themeIcon) themeIcon.className = 'fas fa-moon text-sm';
+            } else {
+                htmlEl.classList.remove('dark');
+                if(themeIcon) themeIcon.className = 'fas fa-sun text-sm';
+            }
+        }
+        
+        function toggleThemeMode() {
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                localStorage.setItem('gold-theme', 'light');
+                if(themeIcon) themeIcon.className = 'fas fa-sun text-sm';
+            } else {
+                htmlEl.classList.add('dark');
+                localStorage.setItem('gold-theme', 'dark');
+                if(themeIcon) themeIcon.className = 'fas fa-moon text-sm';
+            }
+        }
+        
+        if (themeBtn) themeBtn.addEventListener('click', toggleThemeMode);
+        applyThemePreference();
+        
+        const bgObserver = new MutationObserver(() => {
+            if (htmlEl.classList.contains('dark')) {
+                document.body.style.background = 'radial-gradient(circle at 10% 20%, #1a1a2e, #0a0a14)';
+            } else {
+                document.body.style.background = '';
+            }
+        });
+        bgObserver.observe(htmlEl, { attributes: true, attributeFilter: ['class'] });
+        
+        // -------------------------------
+        // RTL TOGGLE
+        // -------------------------------
+        const rtlBtn = document.getElementById('rtlToggle');
+        function setRTL(value) {
+            if (value) {
+                htmlEl.setAttribute('dir', 'rtl');
+                localStorage.setItem('gold-rtl', 'true');
+            } else {
+                htmlEl.setAttribute('dir', 'ltr');
+                localStorage.setItem('gold-rtl', 'false');
+            }
+        }
+        function toggleRTL() {
+            const currentDir = htmlEl.getAttribute('dir');
+            setRTL(currentDir !== 'rtl');
+        }
+        function applyStoredRTL() {
+            const stored = localStorage.getItem('gold-rtl');
+            if (stored === 'true') htmlEl.setAttribute('dir', 'rtl');
+            else htmlEl.setAttribute('dir', 'ltr');
+        }
+        if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+        applyStoredRTL();
+        
+        // -------------------------------
+        // TOAST HELPER
+        // -------------------------------
+        const toastDiv = document.getElementById('toastMessage');
+        const toastTextSpan = document.getElementById('toastText');
+        function showToast(message, isError = false) {
+            if (!toastDiv) return;
+            toastTextSpan.innerText = message;
+            toastDiv.classList.remove('opacity-0', 'pointer-events-none');
+            toastDiv.classList.add('opacity-100', 'pointer-events-auto');
+            toastDiv.style.backgroundColor = isError ? '#9b2c2ccc' : '#1a1a2ecc';
+            setTimeout(() => {
+                toastDiv.classList.add('opacity-0', 'pointer-events-none');
+                toastDiv.classList.remove('opacity-100', 'pointer-events-auto');
+            }, 2500);
+        }
+        
+        // -------------------------------
+        // SIGNUP FORM VALIDATION & SUBMIT
+        // -------------------------------
+        const signupForm = document.getElementById('signupForm');
+        const signupBtn = document.getElementById('signupBtn');
+        
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPwd = document.getElementById('confirmPassword').value;
+            const termsChecked = document.getElementById('termsCheck').checked;
+            
+            if (!fullname) {
+                showToast('Please enter your full name', true);
+                return;
+            }
+            if (!email || !email.includes('@')) {
+                showToast('Enter a valid email address', true);
+                return;
+            }
+            if (password.length < 6) {
+                showToast('Password must be at least 6 characters', true);
+                return;
+            }
+            if (password !== confirmPwd) {
+                showToast('Passwords do not match', true);
+                return;
+            }
+            if (!termsChecked) {
+                showToast('Please accept the Terms & Privacy policy', true);
+                return;
+            }
+            
+            const originalText = signupBtn.innerHTML;
+            signupBtn.disabled = true;
+            signupBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> creating account...';
+            signupBtn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                showToast('Account created successfully! Redirecting to dashboard...', false);
+                
+                setTimeout(() => {
+                    window.location.href = 'user.html';
+                }, 1200);
+            }, 1300);
+        });
+        
+        // -------------------------------
+        // SOCIAL SIGNUP MOCK
+        // -------------------------------
+        document.getElementById('googleSignupBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Google signup demo — coming soon', false);
+        });
+        document.getElementById('appleSignupBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Apple ID signup — coming soon', false);
+        });
+        
+        // -------------------------------
+        // REDIRECT TO LOGIN PAGE
+        // -------------------------------
+        const loginRedirect = document.getElementById('loginRedirect');
+        if (loginRedirect) {
+            loginRedirect.addEventListener('click', (e) => {
+                e.preventDefault();
+                showToast('Redirecting to login...', false);
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 500);
+            });
+        }
+        
+        const termsLink = document.getElementById('termsLink');
+        if (termsLink) {
+            termsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showToast('Terms of Service: standard embroidery studio terms apply.', false);
+            });
+        }
+        
+        console.log("Embroidery Studio Signup — responsive, ready");
+    </script>
+</body>
+</html>

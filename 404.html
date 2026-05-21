@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Embroidery Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="tailwind.js"></script>
+    <link rel="icon" type="img/jpg" href="img/logo.jpg">
+    <style>
+        /* Custom Needle & Stitching Animation */
+        @keyframes stitch {
+            0%, 100% { stroke-dashoffset: 320; filter: drop-shadow(0 0 2px rgba(236, 72, 153, 0.6)); }
+            50% { stroke-dashoffset: 0; filter: drop-shadow(0 0 8px rgba(236, 72, 153, 1)); }
+        }
+        .stitch-text {
+            stroke-dasharray: 320;
+            stroke-dashoffset: 320;
+            animation: stitch 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        .floating-needle {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-stone-900 via-neutral-900 to-zinc-950 text-stone-200 min-h-screen flex items-center justify-center overflow-hidden font-sans">
+
+    <!-- Background Decorative Elements (Fabric Texture Look) -->
+    <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+    <!-- Main Container -->
+    <div class="relative max-w-xl w-full mx-4 p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl text-center z-10">
+        
+        <!-- Embroidery Hoop / Creative Visual -->
+        <div class="relative w-48 h-48 mx-auto mb-8 flex items-center justify-center rounded-full border-4 border-dashed border-pink-500/40 bg-neutral-900/50 shadow-inner">
+            
+            <!-- Animated Stitching SVG -->
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="35" fill="none" stroke="url(#pinkGradient)" stroke-width="4" class="stitch-text" />
+                <defs>
+                    <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ec4899" />
+                        <stop offset="100%" stop-color="#f43f5e" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <!-- 404 Text Inside Hoop -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-6xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-rose-400">404</span>
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-medium mt-1">Thread Broken</span>
+            </div>
+
+            <!-- Floating Needle Icon -->
+            <div class="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center shadow-lg floating-needle">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.72 8.24a2.25 2.25 0 0 1 3.18 3.18l-8.94 8.94a4.5 4.5 0 0 1-1.61 1.05l-3.9 1.3a.75.75 0 0 1-.95-.95l1.3-3.9a4.5 4.5 0 0 1 1.05-1.61l8.94-8.94Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6.5 17.5 10.5" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <h1 class="text-3xl font-bold text-stone-100 mb-4 tracking-tight">Oops! Adhu wrong design pattern...</h1>
+        <p class="text-stone-400 mb-8 max-w-sm mx-auto leading-relaxed text-sm md:text-base">
+            Nenga theduna page namma embroidery list-la illa, illa namma thread cut aytuchu deep-a reach aaga mudila.
+        </p>
+
+        <!-- Navigation Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/" class="px-6 py-3 w-full sm:w-auto rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-medium shadow-lg hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:-translate-y-0.5">
+                Go Back Home
+            </button>
+            <a href="/catalog" class="px-6 py-3 w-full sm:w-auto rounded-xl bg-white/5 border border-white/10 text-stone-300 font-medium hover:bg-white/10 transition-all duration-300">
+                View Catalog
+            </a>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="mt-10 pt-6 border-t border-white/5 text-xs text-stone-500">
+            &copy; 2026 Embroidery Studio. All designs stitched with love.
+        </div>
+    </div>
+
+</body>
+</html>
