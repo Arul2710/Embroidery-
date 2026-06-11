@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-3 group">
           <div class="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center text-charcoal font-bold text-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+            <i class="fas fa-palette text-lg"></i>
           </div>
           <span class="text-base font-bold tracking-wide" style="color: var(--gold);">Embroidery</span>
         </a>
@@ -66,9 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <!-- Right side buttons - Desktop only (XL screens 1280px and above) -->
         <div class="hidden xl:flex items-center gap-2">
-          <button id="rtlToggle" class="rtl-toggle" title="Toggle RTL/LTR">
-            <i class="fas fa-language"></i>
-            <span class="text-xs font-bold">EN</span>
+          <button id="rtlToggle" class="rtl-toggle w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-gold/10 hover:text-gold border border-transparent hover:border-gold/30" title="Toggle RTL/LTR">
+            <i class="fas fa-arrow-right-arrow-left text-sm"></i>
           </button>
           <button id="themeToggle" class="theme-toggle" title="Toggle theme">
             <i class="fas fa-sun sun-icon"></i>
@@ -136,9 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <a href="signup.html" class="flex items-center justify-center px-4 py-3 text-sm font-medium rounded-xl gradient-gold text-charcoal transition-all duration-300">
               Sign Up
             </a>
-            <button id="rtlToggleMobile" class="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300" style="border: 1px solid var(--border-color); color: var(--text-primary); background: var(--glass-bg);">
-              <i class="fas fa-language"></i>
-              <span class="text-xs font-bold">EN</span>
+            <button id="rtlToggleMobile" class="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300 hover:bg-gold/10 hover:text-gold" style="border: 1px solid var(--border-color); color: var(--text-primary); background: var(--glass-bg);">
+              <i class="fas fa-arrow-right-arrow-left text-sm"></i>
             </button>
             <button id="themeToggleMobile" class="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300" style="border: 1px solid var(--border-color); color: var(--text-primary); background: var(--glass-bg);">
               <i class="fas fa-sun sun-icon"></i>
@@ -377,9 +375,9 @@ function toggleRTL() {
 }
 
 function updateRTLIcon(el, dir) {
-  const span = el.querySelector('span.text-xs.font-bold');
-  if (span) {
-    span.textContent = dir === 'rtl' ? 'AR' : 'EN';
+  const icon = el.querySelector('i.fas');
+  if (icon) {
+    icon.className = 'fas fa-arrow-right-arrow-left text-sm';
   }
 }
 

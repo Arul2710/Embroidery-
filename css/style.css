@@ -64,12 +64,18 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
   background: var(--bg-primary);
   color: var(--text-primary);
   transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   padding-top: var(--navbar-height);
 }
+
+h1 { font-weight: 800; }
+h2 { font-weight: 700; }
+h3 { font-weight: 600; }
+h4, h5, h6 { font-weight: 500; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
@@ -521,6 +527,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1024px) {
   .masonry { columns: 3; }
+}
+
+@media (max-width: 1024px) {
+  footer .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1011,6 +1023,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .section-padding { padding: 40px 0; }
+}
+
+@media (max-width: 360px) {
+  header h1 { font-size: 14px !important; }
+  header .text-xs { font-size: 9px !important; }
+  header .top-actions .hidden\:sm\:flex,
+  header .top-actions .sm\:flex { display: none !important; }
+  header .top-actions .sm\:hidden { display: flex !important; }
+  header .top-actions { gap: 6px; }
+  header .top-actions button { width: 32px; height: 32px; padding: 6px; }
+  .stat-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 .hero-full {
