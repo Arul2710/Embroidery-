@@ -44,35 +44,55 @@
                             data-anim="fade-up">Contact Form</span>
                         <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-8" data-anim="fade-up"
                             data-anim-delay="100">Send Us a Message</h2>
-                        <form class="space-y-6" data-anim="fade-up" data-anim-delay="200"
-                            onsubmit="handleFormSubmit(event)">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="input-group"><input type="text" id="name" placeholder=" " required><label
-                                        for="name">Full Name</label></div>
-                                <div class="input-group"><input type="email" id="email" placeholder=" " required><label
-                                        for="email">Email Address</label></div>
-                            </div>
-                            <div class="input-group"><input type="text" id="subject" placeholder=" "><label
-                                    for="subject">Subject</label></div>
-                            <div class="input-group"> <select id="service"
-                                    class="w-full p-4 rounded-xl bg-bg-card border border-border-color text-text-primary">
-                                    <option value="">Select a service</option>
-                                    <option value="embroidery-digitizing">Embroidery Digitizing</option>
-                                    <option value="custom-patches">Custom Patches</option>
-                                    <option value="leather-patches">Leather Patches</option>
-                                    <option value="uniform-embroidery">Uniform Embroidery</option>
-                                    <option value="3d-puff">3D Puff Embroidery</option>
-                                    <option value="bulk-production">Bulk Production</option>
-                                    <option value="other">Other</option>
-                                </select> </div>
-                            <div class="input-group"><textarea id="message" rows="5" placeholder=" "
-                                    required></textarea><label for="message">Tell us about your project</label></div>
-                            <button type="submit" class="btn-primary w-full justify-center">Send Message <svg
-                                    class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg></button>
-                        </form>
+                        <form class="space-y-6" data-anim="fade-up" data-anim-delay="200" onsubmit="handleFormSubmit(event)">
+    
+    <!-- Full Name & Email Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="input-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Full Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email Address</label>
+        </div>
+    </div>
+
+    <!-- Subject Box -->
+    <div class="input-group">
+        <input type="text" id="subject" placeholder=" ">
+        <label for="subject">Subject</label>
+    </div>
+
+    <!-- Service Select Box (Cleaned all internal spaces) -->
+    <div class="input-group"> 
+        <select id="service" required>
+            <option value="" disabled selected hidden></option>
+            <option value="embroidery-digitizing">Embroidery Digitizing</option>
+            <option value="custom-patches">Custom Patches</option>
+            <option value="leather-patches">Leather Patches</option>
+            <option value="uniform-embroidery">Uniform Embroidery</option>
+            <option value="3d-puff">3D Puff Embroidery</option>
+            <option value="bulk-production">Bulk Production</option>
+            <option value="other">Other</option>
+        </select> 
+        <label for="service">Select a service</label>
+    </div>
+
+    <!-- Message Textarea -->
+    <div class="input-group">
+        <textarea id="message" rows="5" placeholder=" " required></textarea>
+        <label for="message">Tell us about your project</label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2">
+        <span>Send Message</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+    </button>
+</form>
                     </div>
                     <div>
                         <div class="space-y-8" data-anim="fade-left"> <span
